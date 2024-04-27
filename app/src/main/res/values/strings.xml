@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">ToDoApp</string>
+    <string name="to_do_list">To do list</string>
+    <string name="add_to_do">Add to do</string>
+    <string name="urgent">Urgent</string>
+    <string name="todo">TODO</string>
+    <string name="to_do_name">To do name</string>
+    <string name="add_todo">Add to do</string>
+    <string name="to_do_description">To do description</string>
+    <string name="to_do_create_date">To do create date</string>
+    <string name="to_do_deadline">To do deadline</string>
+    <string name="high">High</string>
+    <string name="normal">Normal</string>
+    <string name="low">Low</string>
+    <string name="open">Open</string>
+    <string name="development">Development</string>
+    <string name="uploading">Uploading</string>
+    <string name="reject">Reject</string>
+    <string name="closed">Closed</string>
+    <string name="ok">OK</string>
+    <string name="to_do_1">To do 1</string>
+    <string name="save">Save</string>
+</resources>
