@@ -17,21 +17,21 @@ class AddToDoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        val adapter = SpinnerAdapter(obj.list)
-        binding.spinner.adapter = adapter
+        binding.apply {
+            val adapter = SpinnerAdapter(obj.list)
+            spinner.adapter = adapter
 
-        var degree = 0
+            var degree = 0
 
-        binding.btnSave.setOnClickListener {
-            binding.apply {
-                if (toDoName.text.isNotEmpty()&&toDoDescription.text.isNotEmpty()&&toDoDate.text.isNotEmpty()&&toDoDedline.text.isNotEmpty()){
+            btnSave.setOnClickListener {
+                if (toDoName.text.isNotEmpty() && toDoDescription.text.isNotEmpty() && toDoDate.text.isNotEmpty() && toDoDedline.text.isNotEmpty()) {
                     MySharedPreference.init(this@AddToDoActivity)
                     val toDo = ToDo(
-                        binding.toDoName.text.toString(),
-                        binding.toDoDescription.text.toString(),
+                        toDoName.text.toString(),
+                        toDoDescription.text.toString(),
                         degree,
-                        binding.toDoDate.text.toString(),
-                        binding.toDoDedline.text.toString()
+                        toDoDate.text.toString(),
+                        toDoDedline.text.toString()
                     )
                     val list = MySharedPreference.openList
                     list.add(toDo)
@@ -41,15 +41,19 @@ class AddToDoActivity : AppCompatActivity() {
                 }
             }
 
-        }
+            spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+                override fun onItemSelected(
+                    parent: AdapterView<*>?,
+                    view: View?,
+                    position: Int,
+                    id: Long
+                ) {
+                    degree = position
+                }
 
-        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                degree = position
-            }
+                override fun onNothingSelected(parent: AdapterView<*>?) {
 
-            override fun onNothingSelected(parent: AdapterView<*>?) {
-
+                }
             }
         }
     }
